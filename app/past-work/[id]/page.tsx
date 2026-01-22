@@ -117,6 +117,15 @@ const workData: Record<string, any> = {
   },
 }
 
+// Generate static params for static export
+export async function generateStaticParams() {
+  return [
+    { id: 'ecommerce-redesign' },
+    { id: 'work-2' },
+    { id: 'work-3' },
+  ]
+}
+
 export default function WorkDetail() {
   const params = useParams()
   const router = useRouter()
