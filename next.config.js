@@ -5,6 +5,7 @@ const repoName = 'Portfolio2026'
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },

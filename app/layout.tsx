@@ -14,6 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Andrew Cen - Product Designer</title>
+        <meta name="description" content="Product Designer specializing in Web and Desktop applications" />
+      </head>
       <body>
         <Navigation />
         {children}
