@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
 import BackButton from '@/components/BackButton'
+import AnimatedSection from '@/components/AnimatedSection'
 
 // This would typically come from a CMS or database
 const workData: Record<string, any> = {
@@ -145,11 +145,7 @@ export default function WorkDetail({
       <BackButton />
 
       {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-16"
-      >
+      <AnimatedSection className="mb-16">
         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-black">
           {work.title}
         </h1>
@@ -157,15 +153,10 @@ export default function WorkDetail({
         <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
           {work.overview}
         </p>
-      </motion.div>
+      </AnimatedSection>
 
       {/* Project Details */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="grid md:grid-cols-3 gap-8 mb-16 pb-16 border-b border-gray-200"
-      >
+      <AnimatedSection delay={0.1} className="grid md:grid-cols-3 gap-8 mb-16 pb-16 border-b border-gray-200">
         <div>
           <h3 className="font-semibold text-gray-500 mb-2">Role</h3>
           <p className="text-black">{work.role}</p>
@@ -178,7 +169,7 @@ export default function WorkDetail({
           <h3 className="font-semibold text-gray-500 mb-2">Team</h3>
           <p className="text-black">{work.team}</p>
         </div>
-      </motion.div>
+      </AnimatedSection>
 
       {/* Challenge Section */}
       <motion.section
@@ -191,42 +182,27 @@ export default function WorkDetail({
         <p className="text-lg text-gray-700 leading-relaxed">
           {work.challenge.content}
         </p>
-      </motion.section>
+      </AnimatedSection>
 
       {/* Image Section */}
       {work.images && work.images.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mb-16"
-        >
+        <AnimatedSection delay={0.3} className="mb-16">
           <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
             <span className="text-gray-500">Image: {work.images[0].alt}</span>
           </div>
-        </motion.div>
+        </AnimatedSection>
       )}
 
       {/* Research Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-        className="mb-16"
-      >
+      <AnimatedSection delay={0.4} className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-black">{work.research.title}</h2>
         <p className="text-lg text-gray-700 leading-relaxed">
           {work.research.content}
         </p>
-      </motion.section>
+      </AnimatedSection>
 
       {/* Solution Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="mb-16"
-      >
+      <AnimatedSection delay={0.5} className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-black">{work.solution.title}</h2>
         <p className="text-lg text-gray-700 leading-relaxed mb-8">
           {work.solution.content}
@@ -247,12 +223,7 @@ export default function WorkDetail({
 
       {/* Additional Images */}
       {work.images && work.images.length > 1 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mb-16 space-y-8"
-        >
+        <AnimatedSection delay={0.6} className="mb-16 space-y-8">
           {work.images.slice(1).map((img: any, index: number) => (
             <div
               key={index}
@@ -265,12 +236,7 @@ export default function WorkDetail({
       )}
 
       {/* Results Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-        className="mb-16"
-      >
+      <AnimatedSection delay={0.7} className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-black">{work.results.title}</h2>
         <p className="text-lg text-gray-700 leading-relaxed mb-8">
           {work.results.content}
