@@ -172,12 +172,7 @@ export default function WorkDetail({
       </AnimatedSection>
 
       {/* Challenge Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="mb-16"
-      >
+      <AnimatedSection delay={0.2} className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-black">{work.challenge.title}</h2>
         <p className="text-lg text-gray-700 leading-relaxed">
           {work.challenge.content}
@@ -219,7 +214,7 @@ export default function WorkDetail({
             ))}
           </div>
         )}
-      </motion.section>
+      </AnimatedSection>
 
       {/* Additional Images */}
       {work.images && work.images.length > 1 && (
@@ -232,7 +227,7 @@ export default function WorkDetail({
               <span className="text-gray-500">Image: {img.alt}</span>
             </div>
           ))}
-        </motion.div>
+        </AnimatedSection>
       )}
 
       {/* Results Section */}
