@@ -37,3 +37,7 @@ next-env.d.ts
 # npm cache
 .npm-cache/
 setup-git.sh
+push-to-github.sh
+
+# Next.js output
+/out
