@@ -247,7 +247,7 @@ export default function WorkDetail({
             ))}
           </div>
         )}
-      </motion.section>
+      </AnimatedSection>
     </main>
   )
 }
