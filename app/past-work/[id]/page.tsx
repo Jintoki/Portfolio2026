@@ -1,7 +1,5 @@
-'use client'
-
-import { useParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
+import BackButton from '@/components/BackButton'
 
 // This would typically come from a CMS or database
 const workData: Record<string, any> = {
@@ -126,10 +124,12 @@ export async function generateStaticParams() {
   ]
 }
 
-export default function WorkDetail() {
-  const params = useParams()
-  const router = useRouter()
-  const id = params?.id as string
+export default function WorkDetail({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const { id } = params
   const work = workData[id]
 
   if (!work) {
@@ -142,14 +142,7 @@ export default function WorkDetail() {
 
   return (
     <main className="min-h-screen pt-24 px-8 pb-16 max-w-5xl mx-auto">
-      <motion.button
-        onClick={() => router.back()}
-        className="mb-8 text-gray-600 hover:text-black transition-colors"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        ← Back to Past Work
-      </motion.button>
+      <BackButton />
 
       {/* Hero Section */}
       <motion.div
