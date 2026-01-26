@@ -2,21 +2,22 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
-// Placeholder image data - replace with your actual images
 const images = [
-  { id: 1, src: '/photo1.jpg', alt: 'Photography 1' },
-  { id: 2, src: '/photo2.jpg', alt: 'Photography 2' },
-  { id: 3, src: '/photo3.jpg', alt: 'Photography 3' },
-  { id: 4, src: '/photo4.jpg', alt: 'Photography 4' },
-  { id: 5, src: '/photo5.jpg', alt: 'Photography 5' },
-  { id: 6, src: '/photo6.jpg', alt: 'Photography 6' },
-  { id: 7, src: '/photo7.jpg', alt: 'Photography 7' },
-  { id: 8, src: '/photo8.jpg', alt: 'Photography 8' },
-  { id: 9, src: '/photo9.jpg', alt: 'Photography 9' },
-  { id: 10, src: '/photo10.jpg', alt: 'Photography 10' },
-  { id: 11, src: '/photo11.jpg', alt: 'Photography 11' },
-  { id: 12, src: '/photo12.jpg', alt: 'Photography 12' },
+  { id: 1, src: '/36496796_1917532515211119_4492353268390821888_n-28b39790-363b-405c-a66d-576faaa87cee.png', alt: 'Street view with historic tower' },
+  { id: 2, src: '/49210703_2038950786402624_7854437978184089600_n-2243cb6e-7cef-4fe1-b73a-168fc3ebbf54.png', alt: 'Golden Gate Bridge' },
+  { id: 3, src: '/492970411_3736899836607702_4575065765304841364_n-6f49f11b-672e-46ca-aaf4-771ecaa04553.png', alt: 'Children at event' },
+  { id: 4, src: '/50082612_2043431262621243_64074705828577280_n-6bc1fc85-b253-4b73-8d83-9c04dbd7bd13.png', alt: 'Urban street scene' },
+  { id: 5, src: '/494107304_3736615139969505_5638542819027576242_n-6d42293a-a1bc-48f1-b8ff-5d3b638a6f76.png', alt: 'Cherry blossoms' },
+  { id: 6, src: '/495641185_3752237898407229_8805968404399799061_n-34ede2a1-c4ed-4188-9138-993a8a30f3f9.png', alt: 'Traditional Japanese ceremony' },
+  { id: 7, src: '/48369079_2030708753893494_2252396723945078784_n-bb8b7e00-e450-4d82-bb76-286081c65a84.png', alt: 'Subway station' },
+  { id: 8, src: '/493320674_3736542133310139_6417207234942249777_n-524f12cc-0e5f-41a5-8e97-2b40a507cde9.png', alt: 'Cherry blossoms against sky' },
+  { id: 9, src: '/498660216_3756494147981604_2414467669655725046_n-263c9412-ca7e-4077-9ed7-3b86c22c9137.png', alt: 'Ferris wheel' },
+  { id: 10, src: '/495991419_3752237925073893_4865279785435158375_n-d31d448c-6443-4578-a3bb-473bc0e6decf.png', alt: 'Cityscape with Mount Fuji' },
+  { id: 11, src: '/494147849_3736289833335369_8501977206967955575_n-f2500b4b-0a05-4370-96e1-4284594b324e.png', alt: 'Golden temple' },
+  { id: 12, src: '/493140590_3735757440055275_169724924240303190_n-a1c5f7a2-33f8-48a6-a7cf-54a422db52b2.png', alt: 'Japanese macaque' },
+  { id: 13, src: '/499426382_3756280441336308_1592675815489106497_n-70a3c9d3-1acc-4d95-a575-c642cf4ef344.png', alt: 'Architectural dome' },
 ]
 
 export default function Photography() {
@@ -61,8 +62,14 @@ export default function Photography() {
             }}
             onClick={() => openModal(img.id)}
           >
-            <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <span className="text-gray-600 text-sm">{img.alt}</span>
+            <div className="w-full h-full relative overflow-hidden transition-transform duration-300 group-hover:scale-110">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              />
             </div>
           </motion.div>
         ))}
@@ -94,10 +101,14 @@ export default function Photography() {
               className="relative z-10 w-[80vw] h-[80vh] flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-full h-full bg-gray-300 rounded-lg flex items-center justify-center">
-                <span className="text-gray-600">
-                  {images.find((img) => img.id === selectedImage)?.alt}
-                </span>
+              <div className="w-full h-full relative rounded-lg overflow-hidden">
+                <Image
+                  src={images.find((img) => img.id === selectedImage)?.src || ''}
+                  alt={images.find((img) => img.id === selectedImage)?.alt || ''}
+                  fill
+                  className="object-contain"
+                  sizes="80vw"
+                />
               </div>
 
               {/* Close button */}
