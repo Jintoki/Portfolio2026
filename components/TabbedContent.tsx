@@ -51,8 +51,8 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
           <div>
             {/* Challenge Section */}
             <AnimatedSection className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.challenge.title}</h2>
-              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+              <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.challenge.title}</h2>
+              <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
                 {tabContent.challenge.content}
               </p>
             </AnimatedSection>
@@ -60,24 +60,24 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
             {/* Image Section */}
             {tabContent.images && tabContent.images.length > 0 && (
               <AnimatedSection delay={0.1} className="mb-12">
-                <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500">Image: {tabContent.images[0].alt}</span>
+                <div className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center">
+                  <span className="text-gray-400">Image: {tabContent.images[0].alt}</span>
                 </div>
               </AnimatedSection>
             )}
 
             {/* Research/Approach/Discovery Section */}
             <AnimatedSection delay={0.2} className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.research.title}</h2>
-              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+              <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.research.title}</h2>
+              <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
                 {tabContent.research.content}
               </p>
             </AnimatedSection>
 
             {/* Solution Section */}
             <AnimatedSection delay={0.3} className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.solution.title}</h2>
-              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-8">
+              <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.solution.title}</h2>
+              <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
                 {tabContent.solution.content}
               </p>
             </AnimatedSection>
@@ -88,9 +88,9 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                 {tabContent.images.slice(1).map((img, index) => (
                   <div
                     key={index}
-                    className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center"
+                    className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center"
                   >
-                    <span className="text-gray-500">Image: {img.alt}</span>
+                    <span className="text-gray-400">Image: {img.alt}</span>
                   </div>
                 ))}
               </AnimatedSection>
@@ -98,8 +98,8 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
 
             {/* Results Section */}
             <AnimatedSection delay={0.5} className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.results.title}</h2>
-              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+              <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.results.title}</h2>
+              <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
                 {tabContent.results.content}
               </p>
             </AnimatedSection>

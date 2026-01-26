@@ -14,8 +14,8 @@ export default function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 right-0 z-50 p-8">
-      <div className="flex gap-8">
+    <nav className="fixed top-0 right-0 left-0 z-50 p-8 bg-[#091112]">
+      <div className="flex gap-8 justify-end">
         {navItems.map((item) => {
           // For home, use exact match. For other routes, check if pathname starts with the item path
           const isActive = item.path === '/' 
@@ -27,8 +27,8 @@ export default function Navigation() {
               href={isActive ? '#' : item.path}
               className={`text-sm font-medium transition-colors ${
                 isActive
-                  ? 'text-black cursor-default'
-                  : 'text-gray-400 hover:text-gray-600'
+                  ? 'text-[#E5E5E5] cursor-default'
+                  : 'text-gray-500 hover:text-[#E5E5E5]'
               }`}
               onClick={(e) => isActive && e.preventDefault()}
             >

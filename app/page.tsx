@@ -11,7 +11,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-8xl font-bold mb-4 text-black"
+          className="text-6xl md:text-8xl font-bold mb-4 text-[#E5E5E5]"
         >
           Andrew Cen
         </motion.h1>
@@ -19,7 +19,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-700 mb-2"
+          className="text-xl md:text-2xl text-[#E5E5E5] mb-2"
         >
           Product Designer
         </motion.p>

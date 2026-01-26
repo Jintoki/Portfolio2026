@@ -31,7 +31,7 @@ export default function AnimatedWords() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="text-gray-600 text-lg"
+          className="text-gray-400 text-lg"
         >
           {words[currentIndex]}
         </motion.span>

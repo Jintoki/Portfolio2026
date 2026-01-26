@@ -192,11 +192,11 @@ export default function WorkDetail({
 
       {/* Hero Section */}
       <AnimatedSection className="mb-16">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-black">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-[#E5E5E5]">
           {work.title}
         </h1>
-        <p className="text-2xl text-gray-600 mb-8">{work.subtitle}</p>
-        <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
+        <p className="text-2xl text-gray-400 mb-8">{work.subtitle}</p>
+        <p className="text-lg text-[#E5E5E5] leading-relaxed max-w-3xl">
           {work.overview}
         </p>
         {id === 'ecommerce-redesign' && (
@@ -210,26 +210,26 @@ export default function WorkDetail({
       </AnimatedSection>
 
       {/* Project Details */}
-      <AnimatedSection delay={0.1} className="grid md:grid-cols-3 gap-8 mb-16 pb-16 border-b border-gray-200">
+      <AnimatedSection delay={0.1} className="grid md:grid-cols-3 gap-8 mb-16 pb-16 border-b border-gray-700">
         <div>
-          <h3 className="font-semibold text-gray-500 mb-2">Role</h3>
-          <p className="text-black">{work.role}</p>
+          <h3 className="font-semibold text-gray-400 mb-2">Role</h3>
+          <p className="text-[#E5E5E5]">{work.role}</p>
         </div>
         <div>
-          <h3 className="font-semibold text-gray-500 mb-2">Duration</h3>
-          <p className="text-black">{work.duration}</p>
+          <h3 className="font-semibold text-gray-400 mb-2">Duration</h3>
+          <p className="text-[#E5E5E5]">{work.duration}</p>
         </div>
         <div>
-          <h3 className="font-semibold text-gray-500 mb-2">Team</h3>
-          <p className="text-black">{work.team}</p>
+          <h3 className="font-semibold text-gray-400 mb-2">Team</h3>
+          <p className="text-[#E5E5E5]">{work.team}</p>
         </div>
       </AnimatedSection>
 
       {/* Overall Journey */}
       {work.journey && (
         <AnimatedSection delay={0.15} className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-black">The overall journey</h2>
-          <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+          <h2 className="text-2xl font-semibold mb-4 text-[#E5E5E5]">The overall journey</h2>
+          <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
             {work.journey}
           </p>
         </AnimatedSection>
@@ -244,8 +244,8 @@ export default function WorkDetail({
         <>
           {/* Challenge Section */}
           <AnimatedSection delay={0.2} className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-black">{work.challenge.title}</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{work.challenge.title}</h2>
+            <p className="text-lg text-[#E5E5E5] leading-relaxed">
               {work.challenge.content}
             </p>
           </AnimatedSection>
@@ -253,24 +253,24 @@ export default function WorkDetail({
           {/* Image Section */}
           {work.images && work.images.length > 0 && (
             <AnimatedSection delay={0.3} className="mb-16">
-              <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Image: {work.images[0].alt}</span>
+              <div className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center">
+                <span className="text-gray-400">Image: {work.images[0].alt}</span>
               </div>
             </AnimatedSection>
           )}
 
           {/* Research Section */}
           <AnimatedSection delay={0.4} className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-black">{work.research.title}</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{work.research.title}</h2>
+            <p className="text-lg text-[#E5E5E5] leading-relaxed">
               {work.research.content}
             </p>
           </AnimatedSection>
 
           {/* Solution Section */}
           <AnimatedSection delay={0.5} className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-black">{work.solution.title}</h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{work.solution.title}</h2>
+            <p className="text-lg text-[#E5E5E5] leading-relaxed mb-8">
               {work.solution.content}
             </p>
 
@@ -278,9 +278,9 @@ export default function WorkDetail({
             {work.process && work.process.length > 0 && (
               <div className="grid md:grid-cols-2 gap-6 mt-8">
                 {work.process.map((step: any, index: number) => (
-                  <div key={index} className="p-6 bg-gray-50 rounded-lg">
-                    <h3 className="font-semibold text-black mb-2">{step.title}</h3>
-                    <p className="text-gray-600">{step.description}</p>
+                  <div key={index} className="p-6 bg-gray-800 rounded-lg">
+                    <h3 className="font-semibold text-[#E5E5E5] mb-2">{step.title}</h3>
+                    <p className="text-gray-300">{step.description}</p>
                   </div>
                 ))}
               </div>
@@ -293,9 +293,9 @@ export default function WorkDetail({
               {work.images.slice(1).map((img: any, index: number) => (
                 <div
                   key={index}
-                  className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center"
+                  className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center"
                 >
-                  <span className="text-gray-500">Image: {img.alt}</span>
+                  <span className="text-gray-400">Image: {img.alt}</span>
                 </div>
               ))}
             </AnimatedSection>
@@ -303,8 +303,8 @@ export default function WorkDetail({
 
           {/* Results Section */}
           <AnimatedSection delay={0.7} className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-black">{work.results.title}</h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{work.results.title}</h2>
+            <p className="text-lg text-[#E5E5E5] leading-relaxed mb-8">
               {work.results.content}
             </p>
 

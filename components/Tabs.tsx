@@ -31,8 +31,8 @@ export default function Tabs({ tabs, defaultTab, onTabChange, children }: TabsPr
             onClick={() => handleTabChange(tab.id)}
             className={`px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
               activeTab === tab.id
-                ? 'border-black text-black'
-                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                ? 'border-[#E5E5E5] text-[#E5E5E5]'
+                : 'border-transparent text-gray-500 hover:text-[#E5E5E5] hover:border-gray-600'
             }`}
           >
             {tab.label}

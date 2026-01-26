@@ -9,7 +9,7 @@ export default function BackButton() {
   return (
     <motion.button
       onClick={() => router.back()}
-      className="mb-8 text-gray-600 hover:text-black transition-colors"
+      className="mb-8 text-gray-400 hover:text-[#E5E5E5] transition-colors"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >

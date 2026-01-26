@@ -9,7 +9,7 @@ export default function AboutMe() {
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-5xl md:text-6xl font-bold mb-16 text-black"
+        className="text-5xl md:text-6xl font-bold mb-16 text-[#E5E5E5]"
       >
         About Me
       </motion.h1>
@@ -36,7 +36,7 @@ export default function AboutMe() {
           animate={{ opacity: 1, x: 0 }}
           className="space-y-6"
         >
-          <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+          <div className="space-y-4 text-lg text-[#E5E5E5] leading-relaxed">
             <p>
               I'm a product designer based in the Toronto area. I focus on UX/UI and spend most of my time thinking about how systems work, how people use them under real constraints, and how to make complex things feel approachable.
             </p>
@@ -61,7 +61,7 @@ export default function AboutMe() {
             <Link
               href={`${process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''}/resume.pdf`}
               download
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#E5E5E5] text-[#091112] rounded-lg hover:bg-gray-300 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

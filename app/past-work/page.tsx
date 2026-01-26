@@ -11,20 +11,21 @@ const workItems = [
     tags: ['Product Design', 'Trading Platform', 'Design Systems'],
     gradient: 'from-purple-600 to-purple-400',
   },
-  {
-    id: 'work-2',
-    title: 'Project Title 2',
-    description: 'Brief description of your second project',
-    tags: ['Mobile Design', 'User Research'],
-    gradient: 'from-gray-800 to-gray-600',
-  },
-  {
-    id: 'work-3',
-    title: 'Project Title 3',
-    description: 'Brief description of your third project',
-    tags: ['Desktop App', 'Strategy'],
-    gradient: 'from-black to-gray-800',
-  },
+  // Temporarily hidden projects
+  // {
+  //   id: 'work-2',
+  //   title: 'Project Title 2',
+  //   description: 'Brief description of your second project',
+  //   tags: ['Mobile Design', 'User Research'],
+  //   gradient: 'from-gray-800 to-gray-600',
+  // },
+  // {
+  //   id: 'work-3',
+  //   title: 'Project Title 3',
+  //   description: 'Brief description of your third project',
+  //   tags: ['Desktop App', 'Strategy'],
+  //   gradient: 'from-black to-gray-800',
+  // },
 ]
 
 export default function PastWork() {
@@ -34,7 +35,7 @@ export default function PastWork() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold mb-16 text-black"
+          className="text-5xl md:text-6xl font-bold mb-16 text-[#E5E5E5]"
         >
           Past Work
         </motion.h1>
@@ -70,7 +71,7 @@ export default function PastWork() {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 rounded-full text-gray-700 text-sm"
+                      className="px-3 py-1 bg-gray-800 rounded-full text-[#E5E5E5] text-sm"
                     >
                       {tag}
                     </span>
