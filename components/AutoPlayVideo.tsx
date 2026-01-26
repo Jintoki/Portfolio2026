@@ -12,6 +12,14 @@ export default function AutoPlayVideo({ src, className = '', width = '50%' }: Au
   const videoRef = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [hasPlayed, setHasPlayed] = useState(false)
+  
+  // Get asset path with basePath
+  const getAssetPath = (path: string) => {
+    const basePath = process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''
+    return `${basePath}${path}`
+  }
+  
+  const videoSrc = getAssetPath(src)
 
   useEffect(() => {
     const video = videoRef.current
@@ -45,7 +53,7 @@ export default function AutoPlayVideo({ src, className = '', width = '50%' }: Au
     <div ref={containerRef} className={className} style={{ width }}>
       <video
         ref={videoRef}
-        src={src}
+        src={videoSrc}
         width="100%"
         playsInline
         muted

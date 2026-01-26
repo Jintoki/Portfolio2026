@@ -2,7 +2,12 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+
+// Helper to get asset path with basePath
+const getAssetPath = (path: string) => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''
+  return `${basePath}${path}`
+}
 
 const images = [
   { id: 1, src: '/36496796_1917532515211119_4492353268390821888_n-28b39790-363b-405c-a66d-576faaa87cee.png', alt: 'Street view with historic tower' },
@@ -63,12 +68,11 @@ export default function Photography() {
             onClick={() => openModal(img.id)}
           >
             <div className="w-full h-full relative overflow-hidden transition-transform duration-300 group-hover:scale-110">
-              <Image
-                src={img.src}
+              <img
+                src={getAssetPath(img.src)}
                 alt={img.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -102,12 +106,10 @@ export default function Photography() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="w-full h-full relative rounded-lg overflow-hidden">
-                <Image
-                  src={images.find((img) => img.id === selectedImage)?.src || ''}
+                <img
+                  src={getAssetPath(images.find((img) => img.id === selectedImage)?.src || '')}
                   alt={images.find((img) => img.id === selectedImage)?.alt || ''}
-                  fill
-                  className="object-contain"
-                  sizes="80vw"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
