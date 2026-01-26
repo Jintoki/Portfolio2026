@@ -70,7 +70,7 @@ export default function AboutMe() {
             className="pt-6"
           >
             <Link
-              href="/resume.pdf"
+              href={`${process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''}/resume.pdf`}
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
             >
