@@ -1,6 +1,6 @@
 import BackButton from '@/components/BackButton'
 import AnimatedSection from '@/components/AnimatedSection'
-import Tabs from '@/components/Tabs'
+import TabbedContent from '@/components/TabbedContent'
 
 // This would typically come from a CMS or database
 const workData: Record<string, any> = {
@@ -228,81 +228,9 @@ export default function WorkDetail({
 
       {/* Tabbed Content for E-Brokerage */}
       {work.hasTabs && work.tabs ? (
-        <AnimatedSection delay={0.2} className="mb-16">
-          <Tabs
-            tabs={[
-              { id: 'interaction', label: 'Interaction' },
-              { id: 'interface', label: 'User Interface' },
-              { id: 'features', label: 'Features' },
-              { id: 'design-organization', label: 'Design Organization' },
-            ]}
-            defaultTab="interaction"
-          >
-            {(activeTab) => {
-              const tabContent = work.tabs[activeTab]
-              if (!tabContent) return null
-
-              return (
-                <div>
-                  {/* Challenge Section */}
-                  <AnimatedSection className="mb-12">
-                    <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.challenge.title}</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-                      {tabContent.challenge.content}
-                    </p>
-                  </AnimatedSection>
-
-                  {/* Image Section */}
-                  {tabContent.images && tabContent.images.length > 0 && (
-                    <AnimatedSection delay={0.1} className="mb-12">
-                      <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <span className="text-gray-500">Image: {tabContent.images[0].alt}</span>
-                      </div>
-                    </AnimatedSection>
-                  )}
-
-                  {/* Research/Approach/Discovery Section */}
-                  <AnimatedSection delay={0.2} className="mb-12">
-                    <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.research.title}</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-                      {tabContent.research.content}
-                    </p>
-                  </AnimatedSection>
-
-                  {/* Solution Section */}
-                  <AnimatedSection delay={0.3} className="mb-12">
-                    <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.solution.title}</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-8">
-                      {tabContent.solution.content}
-                    </p>
-                  </AnimatedSection>
-
-                  {/* Additional Images */}
-                  {tabContent.images && tabContent.images.length > 1 && (
-                    <AnimatedSection delay={0.4} className="mb-12 space-y-8">
-                      {tabContent.images.slice(1).map((img: any, index: number) => (
-                        <div
-                          key={index}
-                          className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center"
-                        >
-                          <span className="text-gray-500">Image: {img.alt}</span>
-                        </div>
-                      ))}
-                    </AnimatedSection>
-                  )}
-
-                  {/* Results Section */}
-                  <AnimatedSection delay={0.5} className="mb-12">
-                    <h2 className="text-3xl font-bold mb-6 text-black">{tabContent.results.title}</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-                      {tabContent.results.content}
-                    </p>
-                  </AnimatedSection>
-                </div>
-              )
-            }}
-          </Tabs>
-        </AnimatedSection>
+        <div className="mb-16">
+          <TabbedContent tabs={work.tabs} />
+        </div>
       ) : (
         <>
           {/* Challenge Section */}
