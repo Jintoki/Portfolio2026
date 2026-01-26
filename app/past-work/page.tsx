@@ -48,7 +48,7 @@ export default function PastWork() {
             transition={{ delay: index * 0.1 }}
             className="w-full"
           >
-            <Link href={`/past-work/${item.id}`}>
+            <Link href={`/past-work/${item.id}/`}>
               <div className="group cursor-pointer">
                 <div
                   className={`h-64 md:h-80 rounded-lg bg-gradient-to-br ${item.gradient} p-8 flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:shadow-xl`}
