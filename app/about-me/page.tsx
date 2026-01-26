@@ -21,7 +21,7 @@ export default function AboutMe() {
           animate={{ opacity: 1, x: 0 }}
           className="space-y-6"
         >
-          <div className="w-full h-96 rounded-lg overflow-hidden">
+          <div className="w-full h-[600px] rounded-lg overflow-hidden">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''}/profile-picture.png`}
               alt="Andrew Cen"
