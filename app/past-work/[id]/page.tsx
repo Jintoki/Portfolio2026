@@ -1,6 +1,7 @@
 import BackButton from '@/components/BackButton'
 import AnimatedSection from '@/components/AnimatedSection'
 import TabbedContent from '@/components/TabbedContent'
+import AutoPlayVideo from '@/components/AutoPlayVideo'
 
 // This would typically come from a CMS or database
 const workData: Record<string, any> = {
@@ -198,6 +199,14 @@ export default function WorkDetail({
         <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
           {work.overview}
         </p>
+        {id === 'ecommerce-redesign' && (
+          <div className="mt-8">
+            <AutoPlayVideo 
+              src="/qpro-hero-1920.webm" 
+              width="50%"
+            />
+          </div>
+        )}
       </AnimatedSection>
 
       {/* Project Details */}
