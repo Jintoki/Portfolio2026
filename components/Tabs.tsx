@@ -24,7 +24,7 @@ export default function Tabs({ tabs, defaultTab, onTabChange, children }: TabsPr
 
   return (
     <div>
-      <div className="flex gap-1 border-b border-gray-200 mb-8">
+      <div className="flex gap-1 border-b border-gray-700 mb-8">
         {tabs.map((tab) => (
           <button
             key={tab.id}
