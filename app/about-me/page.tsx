@@ -21,11 +21,12 @@ export default function AboutMe() {
           animate={{ opacity: 1, x: 0 }}
           className="space-y-6"
         >
-          <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500">Portrait Image</span>
-          </div>
-          <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500">Workspace Image</span>
+          <div className="w-full h-96 rounded-lg overflow-hidden">
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''}/profile-picture.png`}
+              alt="Andrew Cen"
+              className="w-full h-full object-cover"
+            />
           </div>
         </motion.div>
 
@@ -37,28 +38,16 @@ export default function AboutMe() {
         >
           <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
             <p>
-              I'm a product designer with over 8 years of experience crafting
-              intuitive digital experiences for web and desktop applications. My
-              work focuses on solving complex problems through user-centered
-              design, balancing business goals with user needs.
+              I'm a product designer based in the Toronto area. I focus on UX/UI and spend most of my time thinking about how systems work, how people use them under real constraints, and how to make complex things feel approachable.
             </p>
             <p>
-              Based in San Francisco, I specialize in enterprise software and
-              B2B platforms. I've worked with both startups and Fortune 500
-              companies, leading design initiatives that have improved user
-              satisfaction and driven measurable business results.
+              Outside of work, I love to cook. I tend to apply design thinking to just about everything I do—recipes, tools, workflows—constantly tweaking and iterating until things make sense. That mindset carries into most areas of my life.
             </p>
             <p>
-              My design approach combines thorough research, iterative design,
-              and close collaboration with engineering and product teams. I
-              believe the best designs emerge from a deep understanding of user
-              problems and continuous validation through testing.
+              I have a lot of hobbies and would probably be considered a serial hobbyist. I'm into cars, photography, and I'm just starting to get into trading card games and vibe coding. I really enjoy the spirit of creating and maker culture in general. Lately, I've been interested in getting into 3D printing and designing some slightly whacky products, mostly because I like the process of turning ideas into real things.
             </p>
             <p>
-              When I'm not designing, I enjoy exploring the Bay Area with my
-              camera, capturing moments in street photography and landscapes.
-              This practice helps me see the world with fresh eyes and brings
-              new perspectives to my design work.
+              At the end of the day, I enjoy building things with intention—whether that's a production product, a design system, or a side project that teaches me something new.
             </p>
           </div>
 
