@@ -6,9 +6,9 @@ import { motion } from 'framer-motion'
 const workItems = [
   {
     id: 'ecommerce-redesign',
-    title: 'E-Commerce Platform Redesign',
-    description: 'Complete redesign of a B2B e-commerce platform, focusing on improving conversion rates and user experience',
-    tags: ['Web Design', 'UX Research', 'Prototyping'],
+    title: 'E-Brokerage Platform Redesign',
+    description: 'A new trading platform reimagining what professional trading experience will look like',
+    tags: ['Product Design', 'Trading Platform', 'Design Systems'],
     gradient: 'from-purple-600 to-purple-400',
   },
   {
