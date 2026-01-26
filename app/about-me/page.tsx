@@ -25,7 +25,7 @@ export default function AboutMe() {
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''}/profile-picture.png`}
               alt="Andrew Cen"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
         </motion.div>
