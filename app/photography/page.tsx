@@ -48,35 +48,99 @@ export default function Photography() {
 
       {/* Bento Box Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {images.map((img, index) => (
-          <motion.div
-            key={img.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: index * 0.05 }}
-            className={`relative overflow-hidden rounded-lg bg-gray-200 cursor-pointer group ${
-              index === 0
-                ? 'md:col-span-2 md:row-span-2'
-                : index === 3
-                ? 'md:col-span-2'
-                : ''
-            }`}
-            style={{
-              aspectRatio:
-                index === 0 ? '1' : index === 3 ? '2/1' : '1',
-            }}
-            onClick={() => openModal(img.id)}
-          >
-            <div className="w-full h-full relative overflow-hidden transition-transform duration-300 group-hover:scale-110">
-              <img
-                src={getAssetPath(img.src)}
-                alt={img.alt}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-        ))}
+        {images.map((img, index) => {
+          // Get layout classes based on image ID
+          let colSpan = ''
+          let rowSpan = ''
+          let aspectRatio = '1'
+          
+          // Street view with historic tower - large featured
+          if (img.id === 1) {
+            colSpan = 'md:col-span-2 md:row-span-2'
+            aspectRatio = '1'
+          }
+          // Golden Gate Bridge
+          else if (img.id === 2) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Children at event - span 2 columns (grouped)
+          else if (img.id === 3) {
+            colSpan = 'md:col-span-2'
+            aspectRatio = '2/1'
+          }
+          // Urban street scene
+          else if (img.id === 4) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Cherry blossoms - first one, span 2 columns (grouped with id 8)
+          else if (img.id === 5) {
+            colSpan = 'md:col-span-2'
+            aspectRatio = '2/1'
+          }
+          // Traditional Japanese ceremony
+          else if (img.id === 6) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Subway station
+          else if (img.id === 7) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Cherry blossoms against sky - second one, grouped with id 5
+          else if (img.id === 8) {
+            colSpan = 'md:col-span-2'
+            aspectRatio = '2/1'
+          }
+          // Ferris wheel
+          else if (img.id === 9) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Cityscape with Mount Fuji - span 3-4 columns at bottom
+          else if (img.id === 10) {
+            colSpan = 'md:col-span-3 lg:col-span-4'
+            aspectRatio = '4/1'
+          }
+          // Golden temple
+          else if (img.id === 11) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Japanese macaque
+          else if (img.id === 12) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          // Architectural dome
+          else if (img.id === 13) {
+            colSpan = ''
+            aspectRatio = '1'
+          }
+          
+          return (
+            <motion.div
+              key={img.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.05 }}
+              className={`relative overflow-hidden rounded-lg bg-gray-200 cursor-pointer group ${colSpan}`}
+              style={{ aspectRatio }}
+              onClick={() => openModal(img.id)}
+            >
+              <div className="w-full h-full relative overflow-hidden transition-transform duration-300 group-hover:scale-110">
+                <img
+                  src={getAssetPath(img.src)}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+          )
+        })}
       </div>
 
       {/* Modal */}

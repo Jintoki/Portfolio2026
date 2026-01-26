@@ -203,7 +203,7 @@ export default function WorkDetail({
           <div className="mt-8">
             <AutoPlayVideo 
               src="/qpro-hero-1920.webm" 
-              width="50%"
+              width="100%"
             />
           </div>
         )}
