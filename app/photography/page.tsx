@@ -61,8 +61,8 @@ export default function Photography() {
           }
           // Golden Gate Bridge
           else if (img.id === 2) {
-            colSpan = ''
-            aspectRatio = '1'
+            colSpan = 'md:col-span-2'
+            aspectRatio = '2/1'
           }
           // Children at event - span 2 columns (grouped)
           else if (img.id === 3) {
@@ -106,8 +106,8 @@ export default function Photography() {
           }
           // Golden temple
           else if (img.id === 11) {
-            colSpan = ''
-            aspectRatio = '1'
+            colSpan = 'md:col-span-2'
+            aspectRatio = '2/1'
           }
           // Japanese macaque
           else if (img.id === 12) {
