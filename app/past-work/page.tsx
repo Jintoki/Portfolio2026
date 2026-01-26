@@ -66,7 +66,7 @@ export default function PastWork() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-2 flex-wrap mt-2" style={{ marginTop: '8px' }}>
+                <div className="flex gap-2 flex-wrap" style={{ marginTop: '8px' }}>
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
