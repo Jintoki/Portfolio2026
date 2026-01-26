@@ -19,10 +19,10 @@ const images = [
   { id: 7, src: '/48369079_2030708753893494_2252396723945078784_n-bb8b7e00-e450-4d82-bb76-286081c65a84.png', alt: 'Subway station' },
   { id: 8, src: '/493320674_3736542133310139_6417207234942249777_n-524f12cc-0e5f-41a5-8e97-2b40a507cde9.png', alt: 'Cherry blossoms against sky' },
   { id: 9, src: '/498660216_3756494147981604_2414467669655725046_n-263c9412-ca7e-4077-9ed7-3b86c22c9137.png', alt: 'Ferris wheel' },
-  { id: 10, src: '/495991419_3752237925073893_4865279785435158375_n-d31d448c-6443-4578-a3bb-473bc0e6decf.png', alt: 'Cityscape with Mount Fuji' },
   { id: 11, src: '/494147849_3736289833335369_8501977206967955575_n-f2500b4b-0a05-4370-96e1-4284594b324e.png', alt: 'Golden temple' },
   { id: 12, src: '/493140590_3735757440055275_169724924240303190_n-a1c5f7a2-33f8-48a6-a7cf-54a422db52b2.png', alt: 'Japanese macaque' },
   { id: 13, src: '/499426382_3756280441336308_1592675815489106497_n-70a3c9d3-1acc-4d95-a575-c642cf4ef344.png', alt: 'Architectural dome' },
+  { id: 10, src: '/495991419_3752237925073893_4865279785435158375_n-d31d448c-6443-4578-a3bb-473bc0e6decf.png', alt: 'Cityscape with Mount Fuji' },
 ]
 
 export default function Photography() {
