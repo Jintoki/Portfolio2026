@@ -17,7 +17,10 @@ export default function Navigation() {
     <nav className="fixed top-0 right-0 z-50 p-8">
       <div className="flex gap-8">
         {navItems.map((item) => {
-          const isActive = pathname === item.path
+          // For home, use exact match. For other routes, check if pathname starts with the item path
+          const isActive = item.path === '/' 
+            ? pathname === item.path 
+            : pathname === item.path || pathname.startsWith(`${item.path}/`)
           return (
             <Link
               key={item.path}
