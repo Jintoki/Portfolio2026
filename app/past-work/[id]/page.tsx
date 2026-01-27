@@ -2,6 +2,7 @@ import BackButton from '@/components/BackButton'
 import AnimatedSection from '@/components/AnimatedSection'
 import TabbedContent from '@/components/TabbedContent'
 import AutoPlayVideo from '@/components/AutoPlayVideo'
+import { getAssetPath } from '@/utils/assetPath'
 
 // This would typically come from a CMS or database
 const workData: Record<string, any> = {
@@ -202,7 +203,7 @@ export default function WorkDetail({
         {id === 'ecommerce-redesign' && (
           <div className="mt-8">
             <AutoPlayVideo 
-              src="/qpro-hero-1920.webm" 
+              src={getAssetPath('/qpro-hero-1920.webm')} 
               width="100%"
             />
           </div>
