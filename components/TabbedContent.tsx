@@ -6,6 +6,24 @@ import AnimatedSection from '@/components/AnimatedSection'
 import AutoPlayVideo from '@/components/AutoPlayVideo'
 import ImageModal from '@/components/ImageModal'
 
+// Helper to get the base path for production
+const getBasePath = () => {
+  if (typeof window !== 'undefined') {
+    // Check if we're on GitHub Pages with basePath
+    const pathname = window.location.pathname
+    if (pathname.startsWith('/Portfolio2026/')) {
+      return '/Portfolio2026'
+    }
+  }
+  return ''
+}
+
+// Helper to get the correct asset path based on environment
+const getAssetPath = (path: string) => {
+  const basePath = getBasePath()
+  return `${basePath}${path}`
+}
+
 interface TabContent {
   challenge: {
     title: string
@@ -125,13 +143,13 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                     className="w-[50%] h-96 cursor-pointer overflow-hidden rounded-lg"
                     style={{ backgroundColor: '#797979' }}
                     onClick={() => setModalImage({ 
-                      src: '/widget-behaviour-template.png', 
+                      src: getAssetPath('/widget-behaviour-template.png'), 
                       alt: 'Widget Behaviour Template',
-                      highResSrc: '/widget-behaviour-template-hr.png'
+                      highResSrc: getAssetPath('/widget-behaviour-template-hr.png')
                     })}
                   >
                     <img
-                      src="/widget-behaviour-template.png"
+                      src={getAssetPath('/widget-behaviour-template.png')}
                       alt="Widget Behaviour Template"
                       className="w-full h-full object-cover object-left transition-transform duration-300 hover:scale-105"
                     />
@@ -140,13 +158,13 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                     className="w-[50%] h-96 cursor-pointer overflow-hidden rounded-lg"
                     style={{ backgroundColor: '#797979' }}
                     onClick={() => setModalImage({ 
-                      src: '/adjusting-a-widget.png', 
+                      src: getAssetPath('/adjusting-a-widget.png'), 
                       alt: 'Adjusting a Widget',
-                      highResSrc: '/adjusting-a-widget-hr.png'
+                      highResSrc: getAssetPath('/adjusting-a-widget-hr.png')
                     })}
                   >
                     <img
-                      src="/adjusting-a-widget.png"
+                      src={getAssetPath('/adjusting-a-widget.png')}
                       alt="Adjusting a Widget"
                       className="w-full h-full object-cover object-left transition-transform duration-300 hover:scale-105"
                     />
