@@ -88,6 +88,16 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                   <p className="text-sm text-gray-400 mt-3 text-left">
                     Time and sales widget in Questrade Pro
                   </p>
+                  <div className="mt-8">
+                    <img
+                      src={getAssetPath('/backend-gui-prototype.png')}
+                      alt="Screenshots of the GUI backend developed with backend developers"
+                      className="w-full h-auto rounded-lg"
+                    />
+                    <p className="text-sm text-gray-400 mt-3 text-left">
+                      Screenshots of the GUI backend developed with backend developers
+                    </p>
+                  </div>
                 </div>
               </AnimatedSection>
             )}
@@ -186,9 +196,26 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
             {/* Research/Approach/Discovery Section */}
             <AnimatedSection delay={0.2} className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.research.title}</h2>
-              <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
-                {tabContent.research.content}
-              </p>
+              {activeTab === 'interface' ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
+                      {tabContent.research.content}
+                    </p>
+                  </div>
+                  <div>
+                    <img
+                      src={getAssetPath('/research-competitive-analysis.png')}
+                      alt="Research competitive analysis"
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
+                  {tabContent.research.content}
+                </p>
+              )}
             </AnimatedSection>
 
             {/* Solution Section */}
@@ -230,6 +257,42 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                     </>
                   )
                 }
+                
+                // Handle interface tab with UI Library image
+                if (activeTab === 'interface') {
+                  const updatedContent = tabContent.solution.content.replace(
+                    'The feature has been shipped publicly in closed beta, with an open beta planned for Q1.',
+                    'The feature has being developed in closed beta, the open beta launch will be in Q1.'
+                  )
+                  
+                  return (
+                    <>
+                      <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
+                        {updatedContent}
+                      </p>
+                      <div className="mb-8">
+                        <div
+                          className="cursor-pointer"
+                          onClick={() => setModalImage({ 
+                            src: getAssetPath('/ui-library-contributions.png'),
+                            alt: 'Design system documentation for custom table',
+                            highResSrc: getAssetPath('/ui-library-contributions.png')
+                          })}
+                        >
+                          <img
+                            src={getAssetPath('/ui-library-contributions.png')}
+                            alt="Design system documentation for custom table"
+                            className="w-full h-auto transition-transform duration-300 hover:scale-[1.02]"
+                          />
+                        </div>
+                        <p className="text-sm text-gray-400 mt-3 text-left">
+                          Design system documentation for custom table
+                        </p>
+                      </div>
+                    </>
+                  )
+                }
+                
                 return (
                   <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
                     {tabContent.solution.content}
@@ -277,6 +340,22 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                   ))}
                 </AnimatedSection>
               )
+            )}
+
+            {/* Trade flow widget for Interface tab - above Results */}
+            {activeTab === 'interface' && (
+              <AnimatedSection delay={0.4} className="mb-12">
+                <div className="w-full">
+                  <img
+                    src={getAssetPath('/trade-flow-widget.png')}
+                    alt="Trade flow widget designed to analyze aggregate time and sales data"
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <p className="text-sm text-gray-400 mt-3 text-left">
+                    Trade flow widget designed to analyze aggregate time and sales data
+                  </p>
+                </div>
+              </AnimatedSection>
             )}
 
             {/* Results Section */}
