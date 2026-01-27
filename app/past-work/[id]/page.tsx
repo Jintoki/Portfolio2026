@@ -55,10 +55,7 @@ const workData: Record<string, any> = {
           title: 'Results',
           content: '• Delivered a visually clear, performant dashboard for analyzing time and sales data\n• Successfully extended the design system with new, production-ready components\n• Strong internal confidence from cross-functional partners as the platform moves toward open beta',
         },
-        images: [
-          { src: '/placeholder-interface-1.jpg', alt: 'Time and sales dashboard' },
-          { src: '/placeholder-interface-2.jpg', alt: 'Data table interface' },
-        ],
+        images: [],
       },
       'features': {
         challenge: {

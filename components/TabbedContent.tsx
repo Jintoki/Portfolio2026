@@ -183,14 +183,6 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                   Original behaviours designed within Gridster2 API constraints
                 </p>
               </AnimatedSection>
-            ) : (
-              tabContent.images && tabContent.images.length > 0 && (
-                <AnimatedSection delay={0.1} className="mb-12">
-                  <div className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-400">Image: {tabContent.images[0].alt}</span>
-                  </div>
-                </AnimatedSection>
-              )
             )}
 
             {/* Research/Approach/Discovery Section */}
@@ -265,10 +257,15 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                     'The feature has being developed in closed beta, the open beta launch will be in Q1.'
                   )
                   
+                  // Split content into paragraphs
+                  const paragraphs = updatedContent.split('\n\n')
+                  const firstParagraph = paragraphs[0] || ''
+                  const remainingContent = paragraphs.slice(1).join('\n\n')
+                  
                   return (
                     <>
                       <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
-                        {updatedContent}
+                        {firstParagraph}
                       </p>
                       <div className="mb-8">
                         <div
@@ -289,6 +286,11 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                           Design system documentation for custom table
                         </p>
                       </div>
+                      {remainingContent && (
+                        <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
+                          {remainingContent}
+                        </p>
+                      )}
                     </>
                   )
                 }
@@ -327,19 +329,6 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                   </div>
                 </div>
               </AnimatedSection>
-            ) : (
-              tabContent.images && tabContent.images.length > 1 && (
-                <AnimatedSection delay={0.4} className="mb-12 space-y-8">
-                  {tabContent.images.slice(1).map((img, index) => (
-                    <div
-                      key={index}
-                      className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center"
-                    >
-                      <span className="text-gray-400">Image: {img.alt}</span>
-                    </div>
-                  ))}
-                </AnimatedSection>
-              )
             )}
 
             {/* Trade flow widget for Interface tab - above Results */}
