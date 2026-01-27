@@ -56,16 +56,6 @@ export default function TabbedContent({ tabs }) {
                     <p className="text-sm text-gray-400 mt-3 text-left">
                       Time and sales widget in Questrade Pro
                     </p>
-                    <div className="mt-8">
-                      <img
-                        src={getAssetPath('/backend-gui-prototype.png')}
-                        alt="Screenshots of the GUI backend developed with backend developers"
-                        className="w-full h-auto rounded-lg"
-                      />
-                      <p className="text-sm text-gray-400 mt-3 text-left">
-                        Screenshots of the GUI backend developed with backend developers
-                      </p>
-                    </div>
                   </div>
                 </AnimatedSection>
               )}
