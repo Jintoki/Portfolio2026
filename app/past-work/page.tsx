@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const workItems = [
@@ -9,7 +10,7 @@ const workItems = [
     title: 'E-Brokerage Platform Redesign',
     description: 'A new trading platform reimagining what professional trading experience will look like',
     tags: ['Product Design', 'Trading Platform', 'Design Systems'],
-    gradient: 'from-purple-600 to-purple-400',
+    gradient: 'from-[#020c10] via-[#03191f] to-[#020c10]',
   },
   // Temporarily hidden projects
   // {
@@ -52,20 +53,34 @@ export default function PastWork() {
             <Link href={`/past-work/${item.id}/`}>
               <div className="group cursor-pointer">
                 <div
-                  className={`h-64 md:h-80 rounded-lg bg-gradient-to-br ${item.gradient} p-8 flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:shadow-xl`}
-                  style={{ 
+                  className={`h-64 md:h-80 rounded-lg bg-gradient-to-r ${item.gradient} px-8 py-6 flex items-center justify-between gap-6 relative overflow-hidden transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:shadow-xl`}
+                  style={{
                     willChange: 'transform',
-                    transform: 'translateZ(0)'
+                    transform: 'translateZ(0)',
                   }}
                 >
-                  <div className="relative z-10">
+                  <div className="relative z-10 max-w-xl">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
                       {item.title}
                     </h2>
-                    <p className="text-white/90 text-lg mb-4 max-w-2xl">
+                    <p className="text-white/90 text-lg">
                       {item.description}
                     </p>
                   </div>
+                  {item.id === 'ecommerce-redesign' && (
+                    <div className="relative w-1/3 h-full flex items-center justify-end">
+                      <div className="relative w-full h-40 md:h-48">
+                        <Image
+                          src="/qpro-banner.png"
+                          alt="Questrade Pro closed beta trading interface"
+                          fill
+                          className="object-contain object-right drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
+                          sizes="(min-width: 1024px) 30vw, 40vw"
+                          priority
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="flex gap-2 flex-wrap" style={{ marginTop: '8px' }}>
                   {item.tags.map((tag) => (
