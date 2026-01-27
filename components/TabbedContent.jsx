@@ -270,6 +270,36 @@ export default function TabbedContent({ tabs }) {
                     );
                   }
 
+                  if (activeTab === 'design-organization') {
+                    const parts = tabContent.solution.content.split('Key changes included:');
+                    const intro = parts[0] || '';
+                    const rest =
+                      (parts[1] ? 'Key changes included:' + parts[1] : '').trim();
+
+                    return (
+                      <>
+                        <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
+                          {intro.trim()}
+                        </p>
+                        <div className="mb-8">
+                          <img
+                            src={getAssetPath('/design-org-guide.png')}
+                            alt="Guide and tutorials for design and adjacent teams"
+                            className="w-full h-auto rounded-lg"
+                          />
+                          <p className="text-sm text-gray-400 mt-3 text-left">
+                            Guide and tutorials were written by me and provided to design and adjacent teams
+                          </p>
+                        </div>
+                        {rest && (
+                          <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line mb-8">
+                            {rest}
+                          </p>
+                        )}
+                      </>
+                    );
+                  }
+
                   if (activeTab === 'interface') {
                     const updatedContent = tabContent.solution.content.replace(
                       'The feature has been shipped publicly in closed beta, with an open beta planned for Q1.',
