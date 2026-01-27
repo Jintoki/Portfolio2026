@@ -1,0 +1,45 @@
+'use client'
+
+import { useState } from 'react'
+
+interface Tab {
+ id: string
+ label: string
+}
+
+interface TabsProps {
+ tabs: Tab[]
+ defaultTab?: string
+ onTabChange?: (tabId: string) => void
+ children: (activeTab: string) => React.ReactNode
+}
+
+export default function Tabs({ tabs, defaultTab, onTabChange, children }: TabsProps) {
+ const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id || '')
+
+ const handleTabChange = (tabId: string) => {
+ setActiveTab(tabId)
+ onTabChange?.(tabId)
+ }
+
+ return (
+ <div>
+ <div className="border-b border-gray-800 mb-8">
+ {tabs.map((tab) => (
+ <button
+ key={tab.id}
+ onClick={() => handleTabChange(tab.id)}
+ className={`px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
+ activeTab === tab.id
+ ? 'border-[#E5E5E5] text-[#E5E5E5]'
+ : 'border-transparent text-gray-500 hover:text-[#E5E5E5] hover:border-gray-600'
+ }`}
+ >
+ {tab.label}
+ </button>
+ ))}
+ </div>
+ <div>{children(activeTab)}</div>
+ </div>
+ )
+}
