@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { getAssetPath } from '@/utils/assetPath'
 
 export default function AboutMe() {
   return (
@@ -58,8 +58,8 @@ export default function AboutMe() {
             transition={{ delay: 0.3 }}
             className="pt-6"
           >
-            <Link
-              href={`${process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''}/resume.pdf`}
+            <a
+              href={getAssetPath('/resume.pdf')}
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#E5E5E5] text-[#091112] rounded-lg hover:bg-gray-300 transition-colors"
             >
@@ -78,7 +78,7 @@ export default function AboutMe() {
                 />
               </svg>
               Download Resume
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>
