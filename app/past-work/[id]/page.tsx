@@ -72,7 +72,7 @@ const workData: Record<string, any> = {
         },
         results: {
           title: 'Results',
-          content: '• Significantly improved performance and usability of design files\n• Reduced duplication and manual rework across teams\n• Enabled faster iteration by allowing master updates to apply across multiple files and workspaces\n• Created a more sustainable foundation for a fast-growing component library\n\nThe change was well received by the design team and helped stabilize a system that had become difficult to scale under rapid product growth.',
+          content: '• Reduced duplication and manual rework across teams\n• Enabled faster iteration by allowing master updates to apply across multiple files and workspaces\n• Created a more sustainable foundation for a fast-growing component library\n\nThe change was well received by the design team and helped stabilize a system that had become difficult to scale under rapid product growth.',
         },
         images: [
           { src: '/placeholder-design-org-1.jpg', alt: 'Design file organization structure' },
