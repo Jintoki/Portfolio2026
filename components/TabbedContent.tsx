@@ -76,6 +76,22 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
               </AnimatedSection>
             )}
 
+            {/* Image for Interface tab */}
+            {activeTab === 'interface' && (
+              <AnimatedSection className="mb-12 flex justify-center">
+                <div className="w-full">
+                  <img
+                    src={getAssetPath('/time-and-sales-widget.png')}
+                    alt="Time and sales widget in Questrade Pro"
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <p className="text-sm text-gray-400 mt-3 text-left">
+                    Time and sales widget in Questrade Pro
+                  </p>
+                </div>
+              </AnimatedSection>
+            )}
+
             {/* Challenge Section */}
             <AnimatedSection className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.challenge.title}</h2>
