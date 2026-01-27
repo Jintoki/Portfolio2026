@@ -1,32 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Tabs from '@/components/Tabs'
 import AnimatedSection from '@/components/AnimatedSection'
 import AutoPlayVideo from '@/components/AutoPlayVideo'
 import ImageModal from '@/components/ImageModal'
 
-// Helper to get the base path for production
-const getBasePath = () => {
+// Helper to get the correct asset path based on environment
+// This will be replaced by the memoized version inside the component
+const getAssetPath = (path: string) => {
   if (typeof window !== 'undefined') {
-    // Check if we're on GitHub Pages with basePath
-    const pathname = window.location.pathname
     const hostname = window.location.hostname
+    const pathname = window.location.pathname
     
-    // Check if we're on GitHub Pages (github.io domain) or if pathname indicates basePath
-    if (hostname.includes('github.io') || pathname.startsWith('/Portfolio2026')) {
-      return '/Portfolio2026'
+    // Always use basePath on GitHub Pages
+    if (hostname.includes('github.io')) {
+      const normalizedPath = path.startsWith('/') ? path : `/${path}`
+      return `/Portfolio2026${normalizedPath}`
+    }
+    
+    // Check pathname as fallback
+    if (pathname.startsWith('/Portfolio2026')) {
+      const normalizedPath = path.startsWith('/') ? path : `/${path}`
+      return `/Portfolio2026${normalizedPath}`
     }
   }
-  return ''
-}
-
-// Helper to get the correct asset path based on environment
-const getAssetPath = (path: string) => {
-  const basePath = getBasePath()
-  // Ensure path starts with / and basePath doesn't end with /
+  // Development - no basePath
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  return `${basePath}${normalizedPath}`
+  return normalizedPath
 }
 
 interface TabContent {
@@ -62,6 +63,31 @@ interface TabbedContentProps {
 
 export default function TabbedContent({ tabs }: TabbedContentProps) {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string; highResSrc?: string } | null>(null)
+  
+  // Memoize basePath to ensure it's calculated correctly after mount
+  const basePath = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname
+      // Always use basePath on GitHub Pages
+      if (hostname.includes('github.io')) {
+        return '/Portfolio2026'
+      }
+      // Check pathname as fallback
+      const pathname = window.location.pathname
+      if (pathname.startsWith('/Portfolio2026')) {
+        return '/Portfolio2026'
+      }
+    }
+    return ''
+  }, [])
+  
+  // Create a memoized getAssetPath function that uses the basePath
+  const getAssetPathMemo = useMemo(() => {
+    return (path: string) => {
+      const normalizedPath = path.startsWith('/') ? path : `/${path}`
+      return `${basePath}${normalizedPath}`
+    }
+  }, [basePath])
 
   return (
     <>
@@ -91,7 +117,7 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
             {activeTab === 'interaction' && (
               <AnimatedSection className="mb-12 flex justify-center">
                 <AutoPlayVideo 
-                  src={getAssetPath('/Widget_Management1.mp4')} 
+                  src={getAssetPathMemo('/Widget_Management1.mp4')} 
                   width="60%"
                   className="rounded-lg"
                 />
@@ -119,7 +145,7 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                       <div className="mb-8 flex justify-center">
                         <div className="w-[50%]">
                           <AutoPlayVideo 
-                            src={getAssetPath('/Gridster2.mp4')} 
+                            src={getAssetPathMemo('/Gridster2.mp4')} 
                             width="100%"
                             className="rounded-lg"
                           />
@@ -148,13 +174,13 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                     className="w-[50%] h-96 cursor-pointer overflow-hidden rounded-lg"
                     style={{ backgroundColor: '#797979' }}
                     onClick={() => setModalImage({ 
-                      src: getAssetPath('/widget-behaviour-template.png'), 
+                      src: getAssetPathMemo('/widget-behaviour-template.png'), 
                       alt: 'Widget Behaviour Template',
-                      highResSrc: getAssetPath('/widget-behaviour-template-hr.png')
+                      highResSrc: getAssetPathMemo('/widget-behaviour-template-hr.png')
                     })}
                   >
                     <img
-                      src={getAssetPath('/widget-behaviour-template.png')}
+                      src={getAssetPathMemo('/widget-behaviour-template.png')}
                       alt="Widget Behaviour Template"
                       className="w-full h-full object-cover object-left transition-transform duration-300 hover:scale-105"
                     />
@@ -163,13 +189,13 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                     className="w-[50%] h-96 cursor-pointer overflow-hidden rounded-lg"
                     style={{ backgroundColor: '#797979' }}
                     onClick={() => setModalImage({ 
-                      src: getAssetPath('/adjusting-a-widget.png'), 
+                      src: getAssetPathMemo('/adjusting-a-widget.png'), 
                       alt: 'Adjusting a Widget',
-                      highResSrc: getAssetPath('/adjusting-a-widget-hr.png')
+                      highResSrc: getAssetPathMemo('/adjusting-a-widget-hr.png')
                     })}
                   >
                     <img
-                      src={getAssetPath('/adjusting-a-widget.png')}
+                      src={getAssetPathMemo('/adjusting-a-widget.png')}
                       alt="Adjusting a Widget"
                       className="w-full h-full object-cover object-left transition-transform duration-300 hover:scale-105"
                     />
@@ -215,13 +241,13 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                         <div
                           className="cursor-pointer"
                           onClick={() => setModalImage({ 
-                            src: getAssetPath('/current-widget-management.svg'), 
+                            src: getAssetPathMemo('/current-widget-management.svg'), 
                             alt: 'Current widget management',
-                            highResSrc: getAssetPath('/current-widget-management.svg')
+                            highResSrc: getAssetPathMemo('/current-widget-management.svg')
                           })}
                         >
                           <img
-                            src={getAssetPath('/current-widget-management.svg')}
+                            src={getAssetPathMemo('/current-widget-management.svg')}
                             alt="Current widget management"
                             className="w-full h-auto transition-transform duration-300 hover:scale-[1.02]"
                           />
@@ -250,7 +276,7 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                 <div className="flex gap-4">
                   <div className="w-[50%]">
                     <AutoPlayVideo 
-                      src={getAssetPath('/widget-layers.mp4')}
+                      src={getAssetPathMemo('/widget-layers.mp4')}
                       width="100%"
                       className="rounded-lg"
                     />
@@ -260,7 +286,7 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                   </div>
                   <div className="w-[50%]">
                     <AutoPlayVideo 
-                      src={getAssetPath('/infinite-canvas.mp4')}
+                      src={getAssetPathMemo('/infinite-canvas.mp4')}
                       width="100%"
                       className="rounded-lg"
                     />
