@@ -11,7 +11,10 @@ const getBasePath = () => {
   if (typeof window !== 'undefined') {
     // Check if we're on GitHub Pages with basePath
     const pathname = window.location.pathname
-    if (pathname.startsWith('/Portfolio2026/')) {
+    const hostname = window.location.hostname
+    
+    // Check if we're on GitHub Pages (github.io domain) or if pathname indicates basePath
+    if (hostname.includes('github.io') || pathname.startsWith('/Portfolio2026')) {
       return '/Portfolio2026'
     }
   }
@@ -21,7 +24,9 @@ const getBasePath = () => {
 // Helper to get the correct asset path based on environment
 const getAssetPath = (path: string) => {
   const basePath = getBasePath()
-  return `${basePath}${path}`
+  // Ensure path starts with / and basePath doesn't end with /
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${basePath}${normalizedPath}`
 }
 
 interface TabContent {
