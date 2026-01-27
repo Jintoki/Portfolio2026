@@ -57,28 +57,6 @@ const workData: Record<string, any> = {
         },
         images: [],
       },
-      'features': {
-        challenge: {
-          title: 'The Challenge',
-          content: 'User expectations evolved quickly through alpha and closed beta testing. Feature requests surfaced frequently through channels like Reddit and internal feedback, highlighting workflow gaps and opportunities for quality-of-life improvements.\n\nThese features were often smaller in scope but high-impact for daily trading workflows.',
-        },
-        research: {
-          title: 'Approach',
-          content: 'Rather than deep architectural redesigns, this work focused on:\n\n• Responsiveness to real user needs\n• Speed-to-value\n• Clear, intuitive interactions that fit naturally into existing workflows',
-        },
-        solution: {
-          title: 'Solution',
-          content: 'I designed and shipped several targeted enhancements, including:\n\n• A centralized notification hub\n• Time and sales conditions and filters\n• Order entry resizing to better support different trading styles\n\nThis section emphasizes visual artifacts, motion, and interaction clarity, using animations and UI walkthroughs to demonstrate how these features improve day-to-day trading rather than deep technical breakdowns.',
-        },
-        results: {
-          title: 'Results',
-          content: '• Addressed recurring user requests and workflow friction\n• Improved flexibility and efficiency for active traders\n• Reinforced platform trust by visibly responding to user feedback',
-        },
-        images: [
-          { src: '/placeholder-features-1.jpg', alt: 'Notification hub interface' },
-          { src: '/placeholder-features-2.jpg', alt: 'Order entry resizing feature' },
-        ],
-      },
       'design-organization': {
         challenge: {
           title: 'The Challenge',

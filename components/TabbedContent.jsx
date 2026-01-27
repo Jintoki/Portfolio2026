@@ -94,6 +94,22 @@ export default function TabbedContent({ tabs }) {
                         </div>
                       )}
 
+                      {/* Image for Interface tab challenge section */}
+                      {activeTab === 'interface' && (
+                        <div className="mb-8 flex justify-center">
+                          <div className="w-full">
+                            <img
+                              src={getAssetPath('/backend-gui-dashboard.png')}
+                              alt="Screenshots of the GUI backend developed with backend developers"
+                              className="w-full h-auto rounded-lg"
+                            />
+                            <p className="text-sm text-gray-400 mt-3 text-left">
+                              Screenshots of the GUI backend developed with backend developers
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
                       {secondParagraph && (
                         <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
                           {secondParagraph}
