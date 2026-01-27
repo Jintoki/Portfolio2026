@@ -60,6 +60,34 @@ export default function TabbedContent({ tabs }) {
                 </AnimatedSection>
               )}
 
+              {/* Design Organization comparison images */}
+              {activeTab === 'design-organization' && (
+                <AnimatedSection className="mb-12">
+                  <div className="flex flex-col md:flex-row gap-6">
+                    <div className="w-full md:w-1/2">
+                      <img
+                        src={getAssetPath('/design-org-current.png')}
+                        alt="Original design organization"
+                        className="w-full h-auto rounded-lg"
+                      />
+                      <p className="text-sm text-gray-400 mt-3 text-left">
+                        Original design organization
+                      </p>
+                    </div>
+                    <div className="w-full md:w-1/2">
+                      <img
+                        src={getAssetPath('/design-org-proposed.png')}
+                        alt="Proposed design organization"
+                        className="w-full h-auto rounded-lg"
+                      />
+                      <p className="text-sm text-gray-400 mt-3 text-left">
+                        Proposed design organization
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              )}
+
               {/* Challenge Section */}
               <AnimatedSection className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">
