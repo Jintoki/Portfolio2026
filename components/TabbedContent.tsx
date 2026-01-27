@@ -86,7 +86,7 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
             {activeTab === 'interaction' && (
               <AnimatedSection className="mb-12 flex justify-center">
                 <AutoPlayVideo 
-                  src="/Widget_Management1.mp4" 
+                  src={getAssetPath('/Widget_Management1.mp4')} 
                   width="60%"
                   className="rounded-lg"
                 />
@@ -114,7 +114,7 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
                       <div className="mb-8 flex justify-center">
                         <div className="w-[50%]">
                           <AutoPlayVideo 
-                            src="/Gridster2.mp4" 
+                            src={getAssetPath('/Gridster2.mp4')} 
                             width="100%"
                             className="rounded-lg"
                           />

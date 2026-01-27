@@ -13,13 +13,8 @@ export default function AutoPlayVideo({ src, className = '', width = '50%' }: Au
   const containerRef = useRef<HTMLDivElement>(null)
   const [hasPlayed, setHasPlayed] = useState(false)
   
-  // Get asset path with basePath
-  const getAssetPath = (path: string) => {
-    const basePath = process.env.NODE_ENV === 'production' ? '/Portfolio2026' : ''
-    return `${basePath}${path}`
-  }
-  
-  const videoSrc = getAssetPath(src)
+  // src is already processed with basePath by the parent component
+  const videoSrc = src
 
   useEffect(() => {
     const video = videoRef.current
