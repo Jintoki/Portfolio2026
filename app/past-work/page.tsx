@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { getAssetPath } from '@/utils/assetPath'
 
 const workItems = [
   {
@@ -70,13 +70,10 @@ export default function PastWork() {
                   {item.id === 'ecommerce-redesign' && (
                     <div className="relative w-1/3 h-full flex items-center justify-end">
                       <div className="relative w-full h-40 md:h-48">
-                        <Image
-                          src="/qpro-banner.png"
+                        <img
+                          src={getAssetPath('/qpro-banner.png')}
                           alt="Questrade Pro closed beta trading interface"
-                          fill
-                          className="object-contain object-right drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
-                          sizes="(min-width: 1024px) 30vw, 40vw"
-                          priority
+                          className="w-full h-full object-contain object-right drop-shadow-[0_10px_25px_rgba(0,0,0,0.7)]"
                         />
                       </div>
                     </div>
