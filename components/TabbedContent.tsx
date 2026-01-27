@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import Tabs from '@/components/Tabs'
 import AnimatedSection from '@/components/AnimatedSection'
 import AutoPlayVideo from '@/components/AutoPlayVideo'
+import ImageModal from '@/components/ImageModal'
 
 interface TabContent {
   challenge: {
@@ -36,22 +38,32 @@ interface TabbedContentProps {
 }
 
 export default function TabbedContent({ tabs }: TabbedContentProps) {
-  return (
-    <Tabs
-      tabs={[
-        { id: 'interaction', label: 'Interaction' },
-        { id: 'interface', label: 'User Interface' },
-        { id: 'features', label: 'Features' },
-        { id: 'design-organization', label: 'Design Organization' },
-      ]}
-      defaultTab="interaction"
-    >
-      {(activeTab) => {
-        const tabContent = tabs[activeTab as keyof typeof tabs]
-        if (!tabContent) return null
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string; highResSrc?: string } | null>(null)
 
-        return (
-          <div>
+  return (
+    <>
+      <ImageModal
+        src={modalImage?.src || ''}
+        alt={modalImage?.alt || ''}
+        highResSrc={modalImage?.highResSrc}
+        isOpen={!!modalImage}
+        onClose={() => setModalImage(null)}
+      />
+      <Tabs
+        tabs={[
+          { id: 'interaction', label: 'Interaction' },
+          { id: 'interface', label: 'User Interface' },
+          { id: 'features', label: 'Features' },
+          { id: 'design-organization', label: 'Design Organization' },
+        ]}
+        defaultTab="interaction"
+      >
+        {(activeTab) => {
+          const tabContent = tabs[activeTab as keyof typeof tabs]
+          if (!tabContent) return null
+
+          return (
+            <div>
             {/* Video for Interaction tab */}
             {activeTab === 'interaction' && (
               <AnimatedSection className="mb-12 flex justify-center">
@@ -66,18 +78,92 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
             {/* Challenge Section */}
             <AnimatedSection className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-[#E5E5E5]">{tabContent.challenge.title}</h2>
-              <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
-                {tabContent.challenge.content}
-              </p>
+              {(() => {
+                const paragraphs = tabContent.challenge.content.split('\n\n')
+                const firstParagraph = paragraphs[0] || ''
+                const secondParagraph = paragraphs.slice(1).join('\n\n') || ''
+                
+                return (
+                  <>
+                    {firstParagraph && (
+                      <p className="text-lg text-[#E5E5E5] leading-relaxed mb-8">
+                        {firstParagraph}
+                      </p>
+                    )}
+                    
+                    {/* Video for Interaction tab challenge section */}
+                    {activeTab === 'interaction' && (
+                      <div className="mb-8 flex justify-center">
+                        <div className="w-[50%]">
+                          <AutoPlayVideo 
+                            src="/Gridster2.mp4" 
+                            width="100%"
+                            className="rounded-lg"
+                          />
+                          <p className="text-sm text-gray-400 mt-3 text-left">
+                            Gridster2 API posed a lot of performance issues across devices
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {secondParagraph && (
+                      <p className="text-lg text-[#E5E5E5] leading-relaxed whitespace-pre-line">
+                        {secondParagraph}
+                      </p>
+                    )}
+                  </>
+                )
+              })()}
             </AnimatedSection>
 
-            {/* Image Section */}
-            {tabContent.images && tabContent.images.length > 0 && (
+            {/* Image Section - Special handling for interaction tab widget images */}
+            {activeTab === 'interaction' ? (
               <AnimatedSection delay={0.1} className="mb-12">
-                <div className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-400">Image: {tabContent.images[0].alt}</span>
+                <div className="flex gap-4 mb-3">
+                  <div 
+                    className="w-[50%] h-96 cursor-pointer overflow-hidden rounded-lg"
+                    style={{ backgroundColor: '#797979' }}
+                    onClick={() => setModalImage({ 
+                      src: '/widget-behaviour-template.png', 
+                      alt: 'Widget Behaviour Template',
+                      highResSrc: '/widget-behaviour-template-hr.png'
+                    })}
+                  >
+                    <img
+                      src="/widget-behaviour-template.png"
+                      alt="Widget Behaviour Template"
+                      className="w-full h-full object-cover object-left transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <div 
+                    className="w-[50%] h-96 cursor-pointer overflow-hidden rounded-lg"
+                    style={{ backgroundColor: '#797979' }}
+                    onClick={() => setModalImage({ 
+                      src: '/adjusting-a-widget.png', 
+                      alt: 'Adjusting a Widget',
+                      highResSrc: '/adjusting-a-widget-hr.png'
+                    })}
+                  >
+                    <img
+                      src="/adjusting-a-widget.png"
+                      alt="Adjusting a Widget"
+                      className="w-full h-full object-cover object-left transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
                 </div>
+                <p className="text-sm text-gray-400 text-left">
+                  Original behaviours designed within Gridster2 API constraints
+                </p>
               </AnimatedSection>
+            ) : (
+              tabContent.images && tabContent.images.length > 0 && (
+                <AnimatedSection delay={0.1} className="mb-12">
+                  <div className="w-full h-96 bg-gray-800 rounded-lg flex items-center justify-center">
+                    <span className="text-gray-400">Image: {tabContent.images[0].alt}</span>
+                  </div>
+                </AnimatedSection>
+              )
             )}
 
             {/* Research/Approach/Discovery Section */}
@@ -190,5 +276,6 @@ export default function TabbedContent({ tabs }: TabbedContentProps) {
         )
       }}
     </Tabs>
+    </>
   )
 }
